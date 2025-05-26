@@ -6,7 +6,7 @@
 ## 🚀 Puesta en marcha rápida
 
 ```bash
-git clone <tu-fork-o-repo>
+git clone <https://github.com/iancumes/calc_reactjs.git>
 cd calc               # ↳ entrar a la carpeta del proyecto
 npm install           # instala dependencias
 npm run dev           # 🔥 servidor de desarrollo http://localhost:5173
