@@ -1,0 +1,91 @@
+/* --- root palette --- */
+:root{
+  --bg:#0f0f17;
+  --pane:#1b1b27;
+  --key:#2e2e3e;
+  --key-op:#4e65ff;
+  --key-op-hover:#5f74ff;
+  --key-eq:#ff7b29;
+  --key-eq-hover:#ff8f4e;
+  --text:#e9eef6;
+  --text-dim:#8a91a3;
+  --radius:1rem;
+  font-family:'Inter',system-ui,sans-serif
+}
+
+/* --- layout --- */
+body{
+  margin:0;
+  display:flex;
+  min-height:100vh;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#1d1f27,#13141c)
+}
+
+.calculator{
+  width:clamp(260px,90vw,360px);
+  background:var(--pane);
+  border-radius:var(--radius);
+  box-shadow:0 12px 24px #0007;
+  padding:1.5rem;
+  display:flex;
+  flex-direction:column;
+  gap:1rem
+}
+
+/* --- display --- */
+.display{
+  background:#000c;
+  color:var(--text);
+  font:2.6rem/2.8rem 'JetBrains Mono',monospace;
+  padding:.8rem 1rem;
+  border-radius:.6rem;
+  text-align:right;
+  overflow:hidden;
+  word-break:break-all
+}
+
+/* --- keypad grid --- */
+.keypad{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:.6rem
+}
+
+/* --- generic key --- */
+.btn{
+  appearance:none;
+  border:none;
+  border-radius:.6rem;
+  padding:1rem .5rem;
+  font:1.2rem/1 'Inter',sans-serif;
+  color:var(--text);
+  background:var(--key);
+  cursor:pointer;
+  transition:.15s
+}
+.btn:disabled{opacity:.4;cursor:default}
+.btn:hover{filter:brightness(1.07)}
+.btn:active{transform:scale(.97)}
+
+/* --- operation keys --- */
+.btn[data-op]{background:var(--key-op)}
+.btn[data-op]:hover{background:var(--key-op-hover)}
+
+/* --- equal key spans 2 columns --- */
+.btn[data-eq]{
+  background:var(--key-eq);
+  grid-column:span 2
+}
+.btn[data-eq]:hover{background:var(--key-eq-hover)}
+/* --- clear key (AC) --- */
+.btn[data-ac]{background:#ff3860}
+.btn[data-ac]:hover{background:#ff5878}
+
+
+/* --- media tweaks --- */
+@media (max-width:360px){
+  .btn{padding:.8rem .4rem;font-size:1rem}
+  .display{font-size:2.2rem;line-height:2.4rem}
+}
